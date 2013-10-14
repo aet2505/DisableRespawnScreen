@@ -1,0 +1,5 @@
+name: DisableRespawnScreen
+main: com.aet2505.DisableRespawnScreen.Main
+version: 1.3.0
+author: aet2505
+website: http://dev.bukkit.org/bukkit-plugins/disable-respawn-screen/
