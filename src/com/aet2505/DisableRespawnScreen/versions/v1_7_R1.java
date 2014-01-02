@@ -1,8 +1,9 @@
 package com.aet2505.DisableRespawnScreen.versions;
 
-import net.minecraft.server.v1_6_R2.Packet205ClientCommand;
+import net.minecraft.server.v1_7_R1.EnumClientCommand;
+import net.minecraft.server.v1_7_R1.PacketPlayInClientCommand;
 
-import org.bukkit.craftbukkit.v1_6_R2.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_7_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,7 +12,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import com.aet2505.DisableRespawnScreen.Main;
 import com.aet2505.DisableRespawnScreen.NMS;
 
-public class v1_6_R2 implements NMS, Listener
+public class v1_7_R1 implements NMS, Listener
 {
 	private Main plugin;
 	
@@ -34,9 +35,7 @@ public class v1_6_R2 implements NMS, Listener
 		    {
 		    	if(player.isDead())
 		    	{
-		    		Packet205ClientCommand packet = new Packet205ClientCommand();
-                    packet.a = 1;
-                    ((CraftPlayer) player).getHandle().playerConnection.a(packet);
+		    		((CraftPlayer)player).getHandle().playerConnection.a(new PacketPlayInClientCommand(EnumClientCommand.PERFORM_RESPAWN));
 		    	}
 		    }
 	    });
